@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import Header from "./component/Header/Header";
+import Sidebar from "./component/SideBar/Sidebar";
+import Feed from "./component/Feed/Feed";
+import Widgets from "./component/Widgets/Widgets";
+import Login from "./component/Login/Login";
 
 function App() {
+  const user= null;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // 
+    <div className="app">
+      {!user ? <Login/> : (
+        <>
+        <Header />
+        <div className="app__body">
+          <Sidebar />
+          <Feed />
+          <Widgets />
+        </div>
+        </>
+      )}
+      
     </div>
   );
 }
